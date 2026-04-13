@@ -1,0 +1,23 @@
+class Solution:
+    def reverse(self, x: int) -> int:
+        # Define the 32-bit signed integer limits
+        MIN_INT, MAX_INT = -2**31, 2**31 - 1
+        
+        # Determine the sign and work with the absolute value
+        sign = -1 if x < 0 else 1
+        x = abs(x)
+        
+        res = 0
+        while x != 0:
+            digit = x % 10
+            x //= 10
+            res = res * 10 + digit
+            
+        # Apply the sign
+        res *= sign
+        
+        # Check for 32-bit overflow
+        if res < MIN_INT or res > MAX_INT:
+            return 0
+            
+        return res
