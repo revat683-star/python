@@ -1,0 +1,19 @@
+class Solution:
+    def firstMissingPositive(self, nums: List[int]) -> int:
+        n = len(nums)
+        
+        # Step 1: Cyclic Sort to place numbers in their correct index (x at index x-1)
+        for i in range(n):
+            # While the number belongs in the array and is not in the correct spot
+            while 1 <= nums[i] <= n and nums[nums[i] - 1] != nums[i]:
+                # Swap nums[i] with the element at its target position
+                correct_idx = nums[i] - 1
+                nums[i], nums[correct_idx] = nums[correct_idx], nums[i]
+        
+        # Step 2: Scan for the first index that doesn't match its expected value
+        for i in range(n):
+            if nums[i] != i + 1:
+                return i + 1
+                
+        # Step 3: If all numbers from 1 to n are present
+        return n + 1
