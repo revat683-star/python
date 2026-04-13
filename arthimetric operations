@@ -1,0 +1,13 @@
+if __name__ == '__main__':
+    # Reading input from the user
+    a = int(input().strip())
+    b = int(input().strip())
+    
+    # 1. Print the sum
+    print(a + b)
+    
+    # 2. Print the difference
+    print(a - b)
+    
+    # 3. Print the product
+    print(a * b)
