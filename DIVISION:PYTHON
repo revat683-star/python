@@ -1,0 +1,9 @@
+# Read two integers from STDIN
+a = int(input())
+b = int(input())
+
+# Integer division - floor division (//)
+print(a // b)
+
+# Float division - regular division (/)
+print(a / b)
