@@ -1,0 +1,29 @@
+class Solution:
+    def divide(self, dividend: int, divisor: int) -> int:
+        # Constants for 32-bit integer limits
+        MAX = 2147483647
+        MIN = -2147483648
+
+        # Edge case: Overflow
+        if dividend == MIN and divisor == -1:
+            return MAX
+        
+        # Determine sign
+        negative = (dividend < 0) != (divisor < 0)
+        
+        # Use absolute values
+        a, b = abs(dividend), abs(divisor)
+        res = 0
+        
+        # Main logic: Bit manipulation
+        while a >= b:
+            temp, i = b, 1
+            # Double the divisor until it's larger than the remaining dividend
+            while a >= (temp << 1):
+                temp <<= 1
+                i <<= 1
+            
+            a -= temp
+            res += i
+            
+        return -res if negative else res
