@@ -1,0 +1,12 @@
+class Solution:
+    def strStr(self, haystack: str, needle: str) -> int:
+        if not needle:
+            return 0
+        
+        # Iterate through haystack only as far as needle could fit
+        for i in range(len(haystack) - len(needle) + 1):
+            # Check if the substring starting at i matches needle
+            if haystack[i : i + len(needle)] == needle:
+                return i
+        
+        return -1
