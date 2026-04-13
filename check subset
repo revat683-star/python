@@ -1,0 +1,15 @@
+if __name__ == "__main__":
+    # Read the number of test cases
+    t = int(input())
+    
+    for _ in range(t):
+        # Read set A
+        size_a = int(input())
+        a = set(input().split())
+        
+        # Read set B
+        size_b = int(input())
+        b = set(input().split())
+        
+        # Check if A is a subset of B
+        print(a.issubset(b))
