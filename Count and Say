@@ -1,0 +1,23 @@
+class Solution:
+    def countAndSay(self, n: int) -> str:
+        res = "1"
+        
+        # We already have n=1, so loop n-1 times
+        for _ in range(n - 1):
+            next_res = ""
+            i = 0
+            
+            while i < len(res):
+                count = 1
+                # Count consecutive identical characters
+                while i + 1 < len(res) and res[i] == res[i + 1]:
+                    i += 1
+                    count += 1
+                
+                # Append "count" and then "digit"
+                next_res += str(count) + res[i]
+                i += 1
+            
+            res = next_res
+            
+        return res
