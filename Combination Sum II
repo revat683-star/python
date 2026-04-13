@@ -1,0 +1,26 @@
+class Solution:
+    def combinationSum2(self, candidates: List[int], target: int) -> List[List[int]]:
+        candidates.sort()
+        res = []
+
+        def backtrack(start, target, path):
+            if target == 0:
+                res.append(path[:])
+                return
+            
+            for i in range(start, len(candidates)):
+                # Skip duplicate elements at the same level
+                if i > start and candidates[i] == candidates[i - 1]:
+                    continue
+                
+                # Optimization: if current num exceeds target, no need to check further
+                if candidates[i] > target:
+                    break
+                
+                path.append(candidates[i])
+                # Move to i + 1 because we cannot reuse the same element
+                backtrack(i + 1, target - candidates[i], path)
+                path.pop()
+
+        backtrack(0, target, [])
+        return res
