@@ -1,0 +1,15 @@
+if __name__ == '__main__':
+    k = int(input())
+    rooms = list(map(int, input().split()))
+    
+    # Create a set to get unique room numbers
+    unique_rooms = set(rooms)
+    
+    # Calculate the sums
+    sum_unique = sum(unique_rooms)
+    sum_total = sum(rooms)
+    
+    # Apply the formula
+    captain_room = (sum_unique * k - sum_total) // (k - 1)
+    
+    print(captain_room)
