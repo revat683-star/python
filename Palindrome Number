@@ -1,0 +1,17 @@
+class Solution:
+    def isPalindrome(self, x: int) -> bool:
+        # Special cases:
+        # 1. Negative numbers are not palindromes (e.g., -121 != 121-)
+        # 2. If the last digit is 0, the first digit must be 0 (only 0 itself works)
+        if x < 0 or (x % 10 == 0 and x != 0):
+            return False
+
+        reverted_number = 0
+        while x > reverted_number:
+            # Pop the last digit and push it to reverted_number
+            reverted_number = reverted_number * 10 + x % 10
+            x //= 10
+
+        # For even length: x == reverted_number
+        # For odd length: x == reverted_number // 10 (middle digit doesn't matter)
+        return x == reverted_number or x == reverted_number // 10
