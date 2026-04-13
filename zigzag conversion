@@ -1,0 +1,48 @@
+def convert(s: str, numRows: int) -> str:
+    """
+    Convert a string to zigzag pattern and read row by row.
+    
+    Example:
+    Input: s = "PAYPALISHIRING", numRows = 3
+    Output: "PAHNAPLSIIGYIR"
+    
+    P   A   H   N
+    A P L S I I G
+    Y   I   R
+    """
+    if numRows == 1 or numRows >= len(s):
+        return s
+    
+    rows = [''] * numRows
+    current_row = 0
+    direction = 1  # 1 for down, -1 for up
+    
+    for char in s:
+        rows[current_row] += char
+        
+        # Change direction at top or bottom
+        if current_row == 0:
+            direction = 1
+        elif current_row == numRows - 1:
+            direction = -1
+        
+        current_row += direction
+    
+    return ''.join(rows)
+
+
+# Test cases
+if __name__ == "__main__":
+    # Test case 1
+    result1 = convert("PAYPALISHIRING", 3)
+    print(f"Test 1: {result1}")  # Expected: "PAHNAPLSIIGYIR"
+    
+    # Test case 2
+    result2 = convert("PAYPALISHIRING", 4)
+    print(f"Test 2: {result2}")  # Expected: "PINALSIGYAHRPI"
+    
+    # Test case 3
+    result3 = convert("A", 1)
+    print(f"Test 3: {result3}")  # Expected: "A"
+    
+    print("\nAll tests passed!" if result1 == "PAHNAPLSIIGYIR" and result2 == "PINALSIGYAHRPI" and result3 == "A" else "Tests failed!")
