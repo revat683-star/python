@@ -1,0 +1,19 @@
+class Solution:
+    def isValid(self, s: str) -> bool:
+        stack = []
+        # Map closing brackets to their opening counterparts
+        close_to_open = {")": "(", "}": "{", "]": "["}
+        
+        for char in s:
+            if char in close_to_open:
+                # If stack is not empty and top matches the opening bracket
+                if stack and stack[-1] == close_to_open[char]:
+                    stack.pop()
+                else:
+                    return False
+            else:
+                # It's an opening bracket, push to stack
+                stack.append(char)
+                
+        # Return True only if stack is empty
+        return True if not stack else False
