@@ -1,0 +1,20 @@
+if __name__ == '__main__':
+    # Read set A
+    _ = int(input())
+    a = set(map(int, input().split()))
+    
+    # Read number of operations
+    n = int(input())
+    
+    for _ in range(n):
+        # Read operation name and length (length is ignored)
+        op_name, _ = input().split()
+        # Read the other set
+        other_set = set(map(int, input().split()))
+        
+        # Dynamically call the method on set 'a'
+        # Example: getattr(a, 'update')(other_set)
+        getattr(a, op_name)(other_set)
+        
+    # Print the sum of final elements
+    print(sum(a))
