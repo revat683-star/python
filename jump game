@@ -1,0 +1,15 @@
+class Solution:
+    def canJump(self, nums: List[int]) -> bool:
+        # Set the initial goal to the last index
+        goal = len(nums) - 1
+        
+        # Iterate backwards from the second-to-last element to the first
+        for i in range(len(nums) - 2, -1, -1):
+            # If the current index i plus the max jump distance nums[i]
+            # can reach or pass the current goal
+            if i + nums[i] >= goal:
+                # Move the goal to this current index
+                goal = i
+        
+        # If the goal shifted all the way to the start, return True
+        return goal == 0
