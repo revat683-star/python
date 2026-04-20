@@ -1,0 +1,30 @@
+import numpy
+
+def solve():
+    # Read N (rows) and M (columns)
+    try:
+        line1 = input().split()
+        if not line1:
+            return
+        n, m = map(int, line1)
+        
+        # Read the next N lines containing M elements each
+        matrix_data = []
+        for _ in range(n):
+            row = list(map(int, input().split()))
+            matrix_data.append(row)
+            
+        # Create the numpy array
+        my_array = numpy.array(matrix_data)
+        
+        # Print the Transpose
+        print(numpy.transpose(my_array))
+        
+        # Print the Flattened array
+        print(my_array.flatten())
+        
+    except EOFError:
+        pass
+
+if __name__ == "__main__":
+    solve()
