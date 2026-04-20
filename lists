@@ -1,0 +1,24 @@
+if __name__ == '__main__':
+    N = int(input())
+    my_list = []
+    
+    for _ in range(N):
+        # Split the input line into a list of strings
+        # Example: "insert 0 5" -> ["insert", "0", "5"]
+        command_args = input().split()
+        cmd = command_args[0]
+        
+        if cmd == "insert":
+            my_list.insert(int(command_args[1]), int(command_args[2]))
+        elif cmd == "print":
+            print(my_list)
+        elif cmd == "remove":
+            my_list.remove(int(command_args[1]))
+        elif cmd == "append":
+            my_list.append(int(command_args[1]))
+        elif cmd == "sort":
+            my_list.sort()
+        elif cmd == "pop":
+            my_list.pop()
+        elif cmd == "reverse":
+            my_list.reverse()
