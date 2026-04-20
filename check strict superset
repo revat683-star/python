@@ -1,0 +1,29 @@
+import sys
+
+def check_strict_superset():
+    # Read set A from the first line
+    input_data = sys.stdin.read().splitlines()
+    if not input_data:
+        return
+    
+    set_a = set(map(int, input_data[0].split()))
+    
+    # Read the number of other sets
+    n = int(input_data[1])
+    
+    is_strict_superset = True
+    
+    # Iterate through the next n sets
+    for i in range(2, 2 + n):
+        current_set = set(map(int, input_data[i].split()))
+        
+        # Condition: A must be a superset AND A must have more elements
+        # The > operator handles both: is_superset AND len(a) > len(current)
+        if not (set_a > current_set):
+            is_strict_superset = False
+            break
+            
+    print(is_strict_superset)
+
+if __name__ == "__main__":
+    check_strict_superset()
