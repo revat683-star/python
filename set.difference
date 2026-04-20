@@ -1,0 +1,16 @@
+# 1. Read input for English subscribers
+n_english = int(input())
+english_subs = set(map(int, input().split()))
+
+# 2. Read input for French subscribers
+n_french = int(input())
+french_subs = set(map(int, input().split()))
+
+# 3. Use the .difference() tool to find students only in English
+only_english = english_subs.difference(french_subs)
+
+# 4. Alternatively, using the '-' operator:
+# only_english = english_subs - french_subs
+
+# 5. Output the total number (length) of the resulting set
+print(len(only_english))
