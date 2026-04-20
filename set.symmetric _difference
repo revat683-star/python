@@ -1,0 +1,23 @@
+import sys
+
+def solve():
+    # Read English subscribers
+    try:
+        n = int(sys.stdin.readline())
+        english_set = set(map(int, sys.stdin.readline().split()))
+        
+        # Read French subscribers
+        m = int(sys.stdin.readline())
+        french_set = set(map(int, sys.stdin.readline().split()))
+        
+        # Calculate symmetric difference
+        # Elements in English or French, but NOT both
+        unique_subscribers = english_set.symmetric_difference(french_set)
+        
+        # Output the total count
+        print(len(unique_subscribers))
+    except EOFError:
+        pass
+
+if __name__ == "__main__":
+    solve()
