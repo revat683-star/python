@@ -1,0 +1,30 @@
+class Solution:
+    def isNumber(self, s: str) -> bool:
+        # Define flags for the three components we must track
+        digit = False
+        exponent = False
+        dot = False
+        
+        for i, char in enumerate(s):
+            if char.isdigit():
+                digit = True
+            elif char in "+-":
+                # Signs can only appear at start OR immediately after 'e'
+                if i > 0 and s[i-1] not in "eE":
+                    return False
+            elif char in "eE":
+                # 'e' can only appear once AND must follow a digit
+                if exponent or not digit:
+                    return False
+                exponent = True
+                digit = False # Reset digit because 'e' must be followed by a new integer
+            elif char == ".":
+                # Dot can only appear once AND cannot be after an 'e'
+                if dot or exponent:
+                    return False
+                dot = True
+            else:
+                # Any other character is invalid
+                return False
+        
+        return digit # Ends with a digit (handles cases like "e" or "4e")
