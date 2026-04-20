@@ -1,0 +1,19 @@
+# Read the number of test cases
+t = int(input())
+
+for _ in range(t):
+    try:
+        # Read the two inputs
+        a, b = input().split()
+        
+        # Perform the division and print the result
+        # Integer division in Python 3 is //
+        print(int(a) // int(b))
+        
+    except ZeroDivisionError as e:
+        # Print the error message for division by zero
+        print("Error Code:", e)
+        
+    except ValueError as e:
+        # Print the error message for invalid literal/values
+        print("Error Code:", e)
