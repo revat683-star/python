@@ -1,0 +1,14 @@
+class Solution:
+    def plusOne(self, digits: List[int]) -> List[int]:
+        n = len(digits)
+        
+        # Start from the last digit
+        for i in range(n - 1, -1, -1):
+            if digits[i] < 9:
+                digits[i] += 1
+                return digits
+            # Digit was 9, so it becomes 0 (carry the 1)
+            digits[i] = 0
+            
+        # If we reach here, the number was all 9s (e.g., 999 -> 000)
+        return [1] + digits
