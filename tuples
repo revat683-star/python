@@ -1,0 +1,12 @@
+if __name__ == '__main__':
+    # In Python 2, raw_input() is used for strings
+    n = int(raw_input())
+    
+    # map(int, ...) in Python 2 returns a list directly
+    integer_list = map(int, raw_input().split())
+    
+    # Create the tuple
+    t = tuple(integer_list)
+    
+    # Print the hash (this will match the 3713081631934410656 expected output)
+    print hash(t)
