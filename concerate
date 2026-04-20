@@ -1,0 +1,29 @@
+import numpy
+
+try:
+    # 1. Read and sanitize N, M, and P
+    # We use a list comprehension to strip quotes from each split part
+    input_dims = input().split()
+    n, m, p = [int(x.strip(' "')) for x in input_dims]
+
+    # 2. Read and sanitize the first array (N rows)
+    data_1 = []
+    for _ in range(n):
+        row = [int(x.strip(' "')) for x in input().split()]
+        data_1.append(row)
+    array_1 = numpy.array(data_1)
+
+    # 3. Read and sanitize the second array (M rows)
+    data_2 = []
+    for _ in range(m):
+        row = [int(x.strip(' "')) for x in input().split()]
+        data_2.append(row)
+    array_2 = numpy.array(data_2)
+
+    # 4. Concatenate along axis 0
+    result = numpy.concatenate((array_1, array_2), axis=0)
+
+    print(result)
+
+except ValueError as e:
+    print(f"Error processing input: {e}")
