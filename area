@@ -1,0 +1,23 @@
+import math
+print("First choice is (0.5*b*h) and second choice is sides formula")
+choice = int(input("Enter your choice(1 or 2):"))
+if choice == 1:
+    b = int(input("Enter the value of b:"))
+    h = int(input("Enter the value of h:"))
+    if b >= 0 and h >= 0:
+        area = 0.5 * b * h
+        print(area)
+    else:
+        print("Invalid value")
+elif choice == 2:
+    x = int(input("Enter x side:"))
+    y = int(input("Enter y side:"))
+    z = int(input("Enter z side:"))
+    if x >= 0 and y >= 0 and z >= 0:
+        s = (x + y + z) / 2
+        sides=math.sqrt(s*(s-x)*(s-y)*(s-z))
+        print(sides)
+    else:
+        print("Invalid value")
+else:
+    print("Invalid choice")
