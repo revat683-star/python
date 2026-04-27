@@ -1,0 +1,9 @@
+def pow(a, b):
+    if a == 0:
+        return 0
+    elif b == 0:
+        return 1
+    else:
+        x= a ** b
+        print x
+pow(2,3)
