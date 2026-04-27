@@ -1,0 +1,4 @@
+a_tuple = ('reva','rthy')
+print"The given tuple is",(a_tuple)
+b = " ".join(a_tuple)
+print"The converted string is",(b)
