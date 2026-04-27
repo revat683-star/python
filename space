@@ -1,0 +1,7 @@
+sqr = []
+for num in range(1, 31):
+    if num % 2 == 0:
+        sqr.append(num * num)
+print"Full list of squares:", sqr
+print"First 5 elements:", sqr[:5]
+print"Last 5 elements:", sqr[-5:]
