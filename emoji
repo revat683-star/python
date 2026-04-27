@@ -1,0 +1,32 @@
+# List of emojis to use
+emojis = ["😀", "🌟", "🍕", "🌈", "🐍", "🔥", "🎵", "⚡", "💡"]
+
+# Function to generate emoji art
+def generate_emoji_art(rows=10, cols=20):
+    """
+    Generate an art grid of emojis with given dimensions.
+    Args:
+        rows (int): Number of rows in the art.
+        cols (int): Number of columns in each row.
+    Returns:
+        str: A string representing the emoji art.
+    """
+    art = ""
+    for _ in range(rows):
+        row = "".join(random.choice(emojis) for _ in range(cols))
+        art += row + "
+"
+    return art
+
+# Function to animate the emoji art
+def animate_emoji_art(frames=5, delay=0.5):
+    import time
+    for _ in range(frames):
+        print(generate_emoji_art())
+        time.sleep(delay)
+        print("\033[H\033[J", end="")  # Clears the terminal (works in most consoles)
+
+# Example usage
+if __name__ == "__main__":
+    print("Random Emoji Art Generator!")
+    animate_emoji_art(frames=10, delay=0.7)
