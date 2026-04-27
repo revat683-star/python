@@ -1,0 +1,16 @@
+colours = []
+n1 = int(input("Enter the no. of colours to be entered "))
+for i in range(n1):
+    colour = raw_input("Enter a colour name: ")
+    colours.append(colour)
+print"List of colours:", colours
+print"Size of colour list:", len(colours)
+numbers = []
+n2 = int(input("Enter the no. of numbers to be entered "))
+for i in range(n2):
+    num = int(input("Enter a number: "))
+    numbers.append(num)
+print"Number list:", numbers
+print"Greatest number:", max(numbers)
+print"Smallest number:", min(numbers)
+print"Sum of all numbers:", sum(numbers)
