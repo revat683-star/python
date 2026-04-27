@@ -1,0 +1,9 @@
+def max(x,y,z):
+    if(x>y)and(x>z):
+        return a
+    elif(y>x and y>z):
+        return y
+    else:
+        return z
+a=max(6,7,8)
+print "largest",a
