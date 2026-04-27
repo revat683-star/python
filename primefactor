@@ -1,0 +1,9 @@
+def prime_factors(n):
+    for i in range(2, n + 1):
+        while n % i == 0:
+            print(i)
+            n = n // i
+
+num = int(input("Enter a number: "))
+print "Prime factors are:"
+prime_factors(num)
