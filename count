@@ -1,0 +1,8 @@
+s= raw_input("enter the string ")
+count = {}
+for ch in s:
+    if ch in count:
+        count[ch] = count[ch] + 1
+    else:
+        count[ch] = 1
+print(count)
