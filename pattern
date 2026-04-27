@@ -1,0 +1,50 @@
+import sys
+
+# ASCII patterns for A-Z and space (5x5 block letters)
+ASCII_ART = {
+    'A': ["  A  ",
+          " A A ",
+          "AAAAA",
+          "A   A",
+          "A   A"],
+    'B': ["BBBB ",
+          "B   B",
+          "BBBB ",
+          "B   B",
+          "BBBB "],
+    'C': [" CCC ",
+          "C   C",
+          "C    ",
+          "C   C",
+          " CCC "],
+    ' ': ["     ",
+          "     ",
+          "     ",
+          "     ",
+          "     "]
+}
+
+def text_to_ascii_art(text):
+    """Convert text to ASCII art using predefined patterns."""
+    text = text.upper()
+    # Validate characters
+    for ch in text:
+        if ch not in ASCII_ART:
+            print(f"Character '{ch}' not supported.")
+            sys.exit(1)
+
+    # Build ASCII art line by line
+    for row in range(5):
+        line = "  ".join(ASCII_ART[ch][row] for ch in text)
+        print(line)
+
+if __name__ == "__main__":
+    try:
+        user_input = input("Enter text (A-C and space only): ").strip()
+        if not user_input:
+            raise ValueError("Input cannot be empty.")
+        text_to_ascii_art(user_input)
+    except KeyboardInterrupt:
+        print("\nOperation cancelled.")
+    except Exception as e:
+        print(f"Error: {e}")
