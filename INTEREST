@@ -1,0 +1,10 @@
+import math
+p = float(input("Enter the principal amount: "))
+n = float(input("Enter the no. of years: "))
+r = float(input("Enter the rate of interest: "))
+f = float(input("Enter the compounding frequency: "))
+si = (p * n * r) / 100
+print("Simple Interest is:", si)
+A = p * (1 + (r / (100 * f))) ** (f * n)
+ci = A - p
+print("Compound Interest is:", ci)
