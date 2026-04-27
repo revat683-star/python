@@ -1,0 +1,7 @@
+a=raw_input("Enter a elements: ").split(",")
+b=raw_input("Enter b elements: ").split(",")
+x=tuple(a)
+y=tuple(b)
+tup=()
+tup=x+y
+print tup
